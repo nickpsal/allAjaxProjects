@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/tictactoc.css">
+    <title>Tic Tac Toc</title>
+</head>
+<body>
+    <div class="container">
+        <H1 align="center">TIC TAC TOC</H1>
+        <H3 align="center">ΠΑΙΧΝΙΔΙ ΤΡΙΛΙΖΑΣ 2 ΠΑΙΧΤΩΝ</H3>
+        <div align="center">
+            <H3 id = "message"></H3>
+            <H4 id = "player_turn"></H4>
+        </div>
+    </div>
+    
+    <!-- Pop up window-->
+    <div class="container" style="margin-top:38px;">
+        <div id="choose" class="modal" style="margin-top:70px;">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 align="center" id = "window_label" class="modal-title">Επέλεξε με ποιό Σύμβολο θέλεις να παίξεις.</h2>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col">
+                                <button id="symbol1" class="btn btn-primary"><img src="images/symbol1.jpg"/></button>
+                            </div>
+                            <div class="col">
+                                <button id="symbol2" class="btn btn-primary"><img src="images/symbol2.jpg"/></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                    
+                    </div> 
+                </div>
+            </div> 
+        </div>
+    </div>
+    <!-- Pop up window end-->
+
+    <div class="container">
+        <table>
+            <tr>
+                <td><input type="image" src = "images/empty.jpg" id = "11" class="btn btn-primary" onclick="buttonClicked(this.id)" value="A"></td>
+                <td><input type="image" src = "images/empty.jpg" id = "12" class="btn btn-primary" onclick="buttonClicked(this.id)" value="B"></td>
+                <td><input type="image" src = "images/empty.jpg" id = "13" class="btn btn-primary" onclick="buttonClicked(this.id)" value="C"></td>
+            </tr>
+            <tr>
+                <td><input type="image" src = "images/empty.jpg" id = "21" class="btn btn-primary" onclick="buttonClicked(this.id)" value="D"></td>
+                <td><input type="image" src = "images/empty.jpg" id = "22" class="btn btn-primary" onclick="buttonClicked(this.id)" value="E"></td>
+                <td><input type="image" src = "images/empty.jpg" id = "23" class="btn btn-primary" onclick="buttonClicked(this.id)" value="F"></td>
+            </tr>
+            <tr>
+                <td><input type="image" src = "images/empty.jpg" id = "31" class="btn btn-primary" onclick="buttonClicked(this.id)" value="G"></td>
+                <td><input type="image" src = "images/empty.jpg" id = "32" class="btn btn-primary" onclick="buttonClicked(this.id)" value="H"></td>
+                <td><input type="image" src = "images/empty.jpg" id = "33" class="btn btn-primary" onclick="buttonClicked(this.id)" value="I"></td>
+            </tr>
+        </table>
+    </div>
+    <div class="container">
+        <footer class="bg-light text-center text-lg-start">
+            <div id = "footer" class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+            </div>
+        </footer>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js" integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>    
+    <script type="text/javascript" src="includes/tictactoc.js"></script>
+</body>
+</html>

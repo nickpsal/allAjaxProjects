@@ -1,0 +1,18 @@
+table{
+    background:#1a75ff;
+    color: #ffffff;
+    font-size: 2em;
+    width:70%;
+    height: 70%;
+    text-align: center;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn{
+    margin-top: 10px;
+    font-size:1em;
+    width: 100%;
+    height: 100%;
+}
