@@ -41,7 +41,19 @@ function validateTime(hour,min ){
     }
 }
 
+function stopTimer() {
+    location.reload();
+}
+
 function countdownStart(date) {
+    document.getElementById("startTimer").setAttribute("type","hidden");
+    document.getElementById("day").setAttribute("disabled","disabled");
+    var button = '<input type="button" id = "startTimer" class="btn btn-success col-md-12" onclick="stopTimer()" value="Σταμάτησε">';
+    document.getElementById("buttons").innerHTML = button;
+    document.getElementById("months").setAttribute("disabled","disabled");
+    document.getElementById("year").setAttribute("disabled","disabled");
+    document.getElementById("hour").setAttribute("disabled","disabled");
+    document.getElementById("min").setAttribute("disabled","disabled");
     clearInterval(x);
     var x = setInterval(function() {
         var now = new Date().getTime();
