@@ -19,6 +19,7 @@ function startTimer() {
 }
 
 function validateDate(day,month){
+    var monthNow = new Date().getMonth();
     if (month == "Feb" && (day > 28 || day <1)){
         return false;
     }else if (month == "Jan" || month == "Mar" || month == "May" || month == "Jul" || month == "Aug" || month == "Oct" || month == "Dec") {
@@ -41,15 +42,14 @@ function validateTime(hour,min ){
     }
 }
 
-function stopTimer() {
+function stopTimer(x) {
     location.reload();
 }
 
 function countdownStart(date) {
-    document.getElementById("startTimer").setAttribute("type","hidden");
+    document.getElementById("startTimer").setAttribute("onclick","stopTimer()");
+    document.getElementById("startTimer").setAttribute("value","Σταμάτησε");
     document.getElementById("day").setAttribute("disabled","disabled");
-    var button = '<input type="button" id = "startTimer" class="btn btn-success col-md-12" onclick="stopTimer()" value="Σταμάτησε">';
-    document.getElementById("buttons").innerHTML = button;
     document.getElementById("months").setAttribute("disabled","disabled");
     document.getElementById("year").setAttribute("disabled","disabled");
     document.getElementById("hour").setAttribute("disabled","disabled");

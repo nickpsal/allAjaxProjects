@@ -80,5 +80,9 @@ function generate(){
             symbols.splice(choise,1);
         }
     }
+    console.log(cap);
+    console.log(lower);
+    console.log(num);
+    console.log(symbols);
     document.getElementById("content").innerHTML = result;
 }
