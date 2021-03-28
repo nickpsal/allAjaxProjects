@@ -34,7 +34,7 @@ function drawTzokerTable(){
         $("#tzoker").append(html);
         for(let j=1;j<=4;j++) {
             tz = ("0" + tz).slice(-2);            
-            html = '<td><input type = "button" class="btn btn-primary col-md-5" id = ' + tz + ' onclick="choosetzoker(this.id)" value =' + tz + '></td>';
+            html = '<td><input type = "button" class="btn btn-primary col-md-5" id = tz' + tz + ' onclick="choosetzoker(this.id)" value =' + tz + '></td>';
             $("#tzoker").append(html);
             tz++;
         }
@@ -51,7 +51,6 @@ function footer() {
 function chooseNumber(container){
     if (counter <=5) {
         document.getElementById(container).setAttribute("disabled", "disabled");
-        console.log(container);
         counter++;
         player_numbers.push(container);
     }else{
@@ -59,11 +58,13 @@ function chooseNumber(container){
     }
 }
 
-function choosetzoker(container){
+function choosetzoker(container2){
     if (player_tzoker == 0) {
-        document.getElementById(container).setAttribute("disabled", "disabled");
+        document.getElementById(container2).setAttribute("disabled", "disabled");
         counter++;
-        player_tzoker = container;
+        player_tzoker = container2;
+        player_tzoker = player_tzoker.replace("tz","");
+        console.log(player_tzoker);
     }else{
         alert("Επέλεξες όλα τα νουμερα");
     }
