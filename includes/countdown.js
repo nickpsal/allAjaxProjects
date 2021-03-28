@@ -59,10 +59,15 @@ function countdownStart(date) {
         var now = new Date().getTime();
         var dif = date - now;
         var years = Math.floor(dif / (1000 * 60 * 60 * 24) / 365);
+        years = ("0" + years).slice(-2);
         var days = Math.floor(dif / (1000 * 60 * 60 * 24));
-        var hours = Math.floor((dif % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        var minutes = Math.floor((dif % (1000 * 60 * 60)) / (1000 * 60));
-        var seconds = Math.floor((dif % (1000 * 60)) / 1000);
+        days = ("0" + days).slice(-2);
+        var hours = Math.floor((now % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        hours = ("0" + hours).slice(-2);
+        var minutes = Math.floor((now % (1000 * 60 * 60)) / (1000 * 60));
+        minutes = ("0" + minutes).slice(-2);
+        var seconds = Math.floor((now % (1000 * 60)) / 1000);
+        seconds = ("0" + seconds).slice(-2);
         if (years == 0 && days == 0 && hours == 0 && minutes == 0) {
             document.getElementById("countdown").innerHTML = seconds;
         }else if (years == 0 && days == 0 && hours == 0) {
