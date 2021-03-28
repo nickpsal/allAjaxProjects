@@ -16,6 +16,7 @@ function calcNumbers(numbers) {
         do{
             temp = Math.floor(Math.random() * 80) + 1;
         }while (numbers.includes(temp));
+        temp = ("0" + temp).slice(-2);
         numbers.push(temp);
     }
     numbers.sort(function(a, b){return a - b});
@@ -23,16 +24,13 @@ function calcNumbers(numbers) {
 }
 
 function FillTable() {
-    var number = 01;
+    var number = 1;
     for (let i = 1; i<=8;i++) {
         html = '<tr>';
         $("#numbers").append(html);
         for(let j = 1; j<=10;j++) {
-            if (number < 10) {
-                html = '<td id =' + number + '>' + 0 + number + '</td>';
-            }else{
-                html = '<td id =' + number + '>' + number + '</td>';
-            }
+            number = ("0" + number).slice(-2);
+            html = '<td id =' + number + '>' + number + '</td>';
             $("#numbers").append(html);
             number++;
         }
@@ -43,6 +41,7 @@ function FillTable() {
 
 function showNumbers(numbers) {
     for (let i = 1; i<=80;i++) {
+        i = ("0" + i).slice(-2);
         if (numbers.includes(i)) {
             document.getElementById(i).setAttribute("class", "yellow");
         }

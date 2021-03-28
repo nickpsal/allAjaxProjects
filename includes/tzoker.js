@@ -17,11 +17,8 @@ function drawNumberTable(){
         html = '<tr>';
         $("#numbers").append(html);
         for(let j=1;j<=5;j++) {
-            if (num < 10) {
-                html = '<td><input type = "button" class="btn btn-primary col-md-5" id = ' + num + ' onclick="chooseNumber(this.id)" value = 0' + num + '></td>';
-            }else{
-                html = '<td><input type = "button" class="btn btn-primary col-md-5" id = ' + num + ' onclick="chooseNumber(this.id)" value =' + num + '></td>';
-            }
+            num = ("0" + num).slice(-2);            
+            html = '<td><input type = "button" class="btn btn-primary col-md-5" id = ' + num + ' onclick="chooseNumber(this.id)" value =' + num + '></td>';
             $("#numbers").append(html);
             num++;
         }
@@ -31,18 +28,15 @@ function drawNumberTable(){
 }
 
 function drawTzokerTable(){
-    let num = 1;
+    let tz = 1;
     for(let i=1;i<=5;i++) {
         html = '<tr>';
         $("#tzoker").append(html);
         for(let j=1;j<=4;j++) {
-            if (num < 10) {
-                html = '<td><input type = "button" class="btn btn-primary col-md-5" id = ' + num + ' onclick="choosetzoker(this.id)" value = 0' + num + '></td>';
-            }else{
-                html = '<td><input type = "button" class="btn btn-primary col-md-5" id = ' + num + ' onclick="choosetzoker(this.id)" value =' + num + '></td>';
-            }
+            tz = ("0" + tz).slice(-2);            
+            html = '<td><input type = "button" class="btn btn-primary col-md-5" id = ' + tz + ' onclick="choosetzoker(this.id)" value =' + tz + '></td>';
             $("#tzoker").append(html);
-            num++;
+            tz++;
         }
         html = '</tr>';
         $("#tzoker").append(html);
@@ -80,10 +74,12 @@ function genNumbers(){
         do{
             temp = Math.floor(Math.random() * 45) + 1;
         }while (numbers.includes(temp));
+        temp = ("0" + temp).slice(-2);
         numbers.push(temp);
     }
     numbers.sort(function(a, b){return a - b});
     tzoker = Math.floor(Math.random() * 20) + 1;
+    tzoker = ("0" + tzoker).slice(-2);
 }
 
 function about() {

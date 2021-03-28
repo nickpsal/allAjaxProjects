@@ -9,10 +9,8 @@
 }
 
 .header{
+    background-color: black;
+    color:red;
     font-size: 5em;
     text-align: center;
-}
-
-.form-control{
-    font-size: 18px;
 }
