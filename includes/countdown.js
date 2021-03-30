@@ -1,3 +1,7 @@
+$(document).ready(function(){
+    document.getElementById('day').focus();
+});
+
 function startTimer() {
     var day = $("#day").val();
     var month = document.getElementById("months").value;
@@ -58,6 +62,7 @@ function countdownStart(date) {
     var x = setInterval(function() {
         var now = new Date();
         var dif = date - now;
+        console.log(dif);
         var years = Math.floor(dif / (1000 * 60 * 60 * 24) / 365);
         var days = Math.floor(dif / (1000 * 60 * 60 * 24));
         days = ("0" + days).slice(-2);
