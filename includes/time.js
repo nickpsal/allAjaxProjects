@@ -16,7 +16,7 @@ function showTime() {
         var second = now.getSeconds();     
         drawFace(ctx, radius);
         drawNumbers(ctx, radius);
-        drawTime(ctx, radius,hour,minute,second);   
+        drawTime(ctx,radius,hour,minute,second);   
         hour = ("0" + hour).slice(-2);
         minute = ("0" + minute).slice(-2);
         second = ("0" + second).slice(-2);
