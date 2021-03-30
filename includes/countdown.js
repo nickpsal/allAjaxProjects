@@ -12,7 +12,7 @@ function startTimer() {
             alert("Δεν δώσατε σωστή ώρα");
         }else{
             var time = hour + ":" + min + ":" + sec;
-            var date = new Date(month + " " + day + ", " + year + " " + time).getTime();
+            var date = new Date(month + " " + day + ", " + year + " " + time);
             countdownStart(date);
         }
     }    
@@ -56,10 +56,9 @@ function countdownStart(date) {
     document.getElementById("min").setAttribute("disabled","disabled");
     clearInterval(x);
     var x = setInterval(function() {
-        var now = new Date().getTime();
+        var now = new Date();
         var dif = date - now;
         var years = Math.floor(dif / (1000 * 60 * 60 * 24) / 365);
-        years = ("0" + years).slice(-2);
         var days = Math.floor(dif / (1000 * 60 * 60 * 24));
         days = ("0" + days).slice(-2);
         var hours = Math.floor((now % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -68,6 +67,7 @@ function countdownStart(date) {
         minutes = ("0" + minutes).slice(-2);
         var seconds = Math.floor((now % (1000 * 60)) / 1000);
         seconds = ("0" + seconds).slice(-2);
+        console.log(now.getMonth() + " " + date);
         if (years == 0 && days == 0 && hours == 0 && minutes == 0) {
             document.getElementById("countdown").innerHTML = seconds;
         }else if (years == 0 && days == 0 && hours == 0) {

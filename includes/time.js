@@ -5,27 +5,27 @@ ctx.translate(radius, radius);
 radius = radius * 0.90
 $(document).ready(function() {
     showTime();
-    setInterval(drawClock, 1000);
 });
 
 function showTime() {
     clearInterval(x);
     var x = setInterval(function() {
-        var now = new Date().getTime();
-        var hours = Math.floor((now % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        hours = ("0" + hours).slice(-2);
-        var minutes = Math.floor((now % (1000 * 60 * 60)) / (1000 * 60));
-        minutes = ("0" + minutes).slice(-2);
-        var seconds = Math.floor((now % (1000 * 60)) / 1000);
-        seconds = ("0" + seconds).slice(-2);
-        document.getElementById("countdown").innerHTML = hours + ":" + minutes + ":" + seconds;
+        var now = new Date();
+        var hour = now.getHours();
+        var minute = now.getMinutes();
+        var second = now.getSeconds();     
+        drawFace(ctx, radius);
+        drawNumbers(ctx, radius);
+        drawTime(ctx, radius,hour,minute,second);   
+        hour = ("0" + hour).slice(-2);
+        minute = ("0" + minute).slice(-2);
+        second = ("0" + second).slice(-2);
+        document.getElementById("time").innerHTML = hour + ":" + minute + ":" + second;
     },1000);
 }
 
 function drawClock() {
-    drawFace(ctx, radius);
-    drawNumbers(ctx, radius);
-    drawTime(ctx, radius);
+  
   }
   
   function drawFace(ctx, radius) {
@@ -65,11 +65,7 @@ function drawClock() {
     }
   }
   
-  function drawTime(ctx, radius){
-      var now = new Date();
-      var hour = now.getHours();
-      var minute = now.getMinutes();
-      var second = now.getSeconds();
+  function drawTime(ctx,radius,hour,minute,second){
       //hour
       hour=hour%12;
       hour=(hour*Math.PI/6)+
