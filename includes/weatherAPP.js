@@ -22,11 +22,23 @@ function showPosition(position) {
     let restUrl = "&units=metric&lang=el&exclude=minutely,alerts&"
     let apikeyUrl = "appid=" + apiKey;
     let url = url1 + laturl + lonurl + restUrl + apikeyUrl;
-    fetch(url)
-        .then((response) => response.json())
-        .then((data) => {
-            getData(data);
-        });
+    console.log(url);
+    $.ajax({
+        url:url,
+        method: "GET",
+        dataType: "JSON",
+        success: function (response) {
+            console.log(response);
+            getData(response);
+        },
+        error: function(response) {
+            var message = response.responseText;
+            message = message.replace("{","");
+            message = message.replace("}","");
+            message = message.replace(/"/g, "");
+            alert(message);
+        }
+    });
 }
 
 function getData(data) {
@@ -70,18 +82,18 @@ function getData(data) {
     let todayIcon = data.current.weather[0].icon;
     let tommorowIcon = data.daily[0].weather[0].icon;
     let tdaIcon = data.daily[1].weather[0].icon;
+    let time1Icon = data.hourly[1].weather[0].icon;
+    let time2Icon = data.hourly[2].weather[0].icon;
+    let time3Icon = data.hourly[3].weather[0].icon;
+    let time4Icon = data.hourly[4].weather[0].icon;
+    let time5Icon = data.hourly[5].weather[0].icon;
     let FulIconToday = iconBaseURl + todayIcon + iconformat;
     let FulIconTommoerow = iconBaseURl + tommorowIcon + iconformat;
     let FulIconTda = iconBaseURl + tdaIcon + iconformat;
-    let time1Icon = data.hourly[1].weather[0].icon;
     let FullTime1Icon = iconBaseURl + time1Icon + iconformat;
-    let time2Icon = data.hourly[2].weather[0].icon;
     let FullTime2Icon = iconBaseURl + time2Icon + iconformat;
-    let time3Icon = data.hourly[3].weather[0].icon;
     let FullTime3Icon = iconBaseURl + time3Icon + iconformat;
-    let time4Icon = data.hourly[4].weather[0].icon;
     let FullTime4Icon = iconBaseURl + time4Icon + iconformat;
-    let time5Icon = data.hourly[5].weather[0].icon;
     let FullTime5Icon = iconBaseURl + time5Icon + iconformat;
 
     //print data
