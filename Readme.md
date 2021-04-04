@@ -7,3 +7,4 @@ The projects are
 4. randomPassword Generator
 5. TicTacToc
 6. Tzoker Game
+7. WeatherAPP 
